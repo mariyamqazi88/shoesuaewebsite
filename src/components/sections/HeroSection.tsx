@@ -129,7 +129,7 @@ export const HeroSection: React.FC = () => {
               className="relative z-10 w-full max-w-[150px] xs:max-w-[220px] sm:max-w-[380px] aspect-square flex items-center justify-center group"
             >
               <img
-                src="public/assets/images/shoes2.jpg"
+                src="/assets/images/shoes2.jpg"
                 alt="sho.esuae Luxury Footwear"
                 className="w-full h-auto object-contain opacity-100 filter-none drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform duration-700 ease-out"
               />
