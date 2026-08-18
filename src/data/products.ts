@@ -96,7 +96,7 @@ export const PRODUCTS: Product[] = [
       { name: 'Sand Taupe', hex: '#D4A373' },
       { name: 'Espresso Suede', hex: '#4A3B32' },
     ],
-    description: 'Effortless luxury silhouette crafted from water-treated Tuscan calf suede. Features elasticized side gores and pull tab for smooth entry.',
+    description: 'Effortless luxury style crafted from water-treated Tuscan calf suede. Features elasticized side gores and pull tab for smooth entry.',
     features: [
       'Tuscan calf suede with stain shield',
       'Elastic lateral stretch panels',
@@ -152,7 +152,7 @@ export const PRODUCTS: Product[] = [
       { name: 'Polished Black', hex: '#111111' },
       { name: 'Deep Burgundy', hex: '#58111A' },
     ],
-    description: 'Classic open-lacing English Derby silhouette with meticulous brogue quarter stitching and polished beeswax coat.',
+    description: 'Classic open-lacing English Derby design with meticulous brogue quarter stitching and polished beeswax coat.',
     features: [
       'Open Derby lacing system',
       'Double leather welted sole',

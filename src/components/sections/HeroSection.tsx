@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, type Variants } from 'framer-motion';
-import { ArrowRight, Zap, Compass } from 'lucide-react';
+import { ArrowRight, Compass } from 'lucide-react';
 
 export const HeroSection: React.FC = () => {
   const containerVariants: Variants = {
@@ -24,161 +24,124 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white pt-6 pb-16 md:py-20 border-b border-zinc-100">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section className="relative overflow-hidden bg-[#121118] text-white select-none border-b border-neutral-800 min-h-[340px] sm:min-h-[480px] flex items-center w-full max-w-full">
+      
+      {/* Background Split Layout matching reference image (Left Dark, Right Theme Accent) */}
+      <div className="absolute inset-0 z-0 flex w-full max-w-full">
+        {/* Left Dark Section */}
+        <div className="w-full lg:w-[62%] bg-[#121118] relative flex items-center justify-center overflow-hidden">
+          {/* Subtle Watermark Text Behind */}
+          <span className="hidden sm:block absolute text-[16vw] lg:text-[12vw] font-black text-white/[0.04] tracking-tighter select-none pointer-events-none uppercase font-sans break-all max-w-full">
+            SHOESUAE
+          </span>
+        </div>
+
+        {/* Right Split Theme Accent Panel (Warm Camel Tan #D4A373) */}
+        <div className="hidden lg:block lg:w-[38%] bg-gradient-to-b from-[#D4A373] via-[#C29B7F] to-[#B58352] relative overflow-hidden">
+          <div className="absolute inset-0 bg-white/5 backdrop-blur-[2px]" />
+          {/* Subtle Ambient Curved Overlay Lines */}
+          <div className="absolute -right-20 -bottom-20 w-96 h-96 rounded-full border border-white/20 pointer-events-none" />
+          <div className="absolute -right-40 -top-20 w-[500px] h-[500px] rounded-full border border-white/10 pointer-events-none" />
+        </div>
+      </div>
+
+      <div className="container mx-auto px-2 sm:px-4 md:px-8 relative z-10 py-3 sm:py-8 md:py-12 w-full max-w-full overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-8 lg:gap-6 items-center w-full max-w-full">
           
-          {/* Left Column: Typographic Headline & CTAs */}
+          {/* Left Column: Text Content & Dual CTAs */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-6 space-y-8 z-10"
+            className="lg:col-span-7 space-y-2.5 sm:space-y-3 max-w-xl text-white min-w-0 w-full"
           >
-            
-            {/* Tag Badge */}
-            <motion.div variants={itemVariants}>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent-light text-brand-dark text-xs font-semibold tracking-wide border border-brand-accent/30 shadow-sm">
-                <Zap className="w-3.5 h-3.5 text-brand-accent-dark" />
-                <span>NEW COLLECTION 2026</span>
-              </div>
+            {/* Sub-badge / Top Header (Hidden on screens 400px and below) */}
+            <motion.div variants={itemVariants} className="max-w-full hidden md:block">
+              <span className="text-xs font-mono font-black tracking-widest uppercase text-[#D4A373] bg-[#D4A373]/15 px-3 py-1 rounded-full border border-[#D4A373]/30 inline-block shadow-sm max-w-full truncate">
+                NEW ARRIVAL // 2026
+              </span>
             </motion.div>
 
-            {/* Main Headline */}
-            <motion.div variants={itemVariants} className="space-y-3">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-brand-dark font-sans leading-[1.08]">
+            {/* Responsive Headline for mobile screens */}
+            <motion.div variants={itemVariants} className="space-y-1 max-w-full">
+              <h1 className="text-base xs:text-xl sm:text-3xl lg:text-[2.65rem] font-black tracking-tight leading-tight uppercase font-sans break-words max-w-full">
                 Explore <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-dark via-neutral-800 to-brand-accent">
+                <span className="text-[#D4A373] bg-clip-text text-transparent bg-gradient-to-r from-[#E6BC92] via-[#D4A373] to-[#B58352] drop-shadow-md">
                   Premium Shoes
                 </span>
               </h1>
-              <p className="text-brand-muted text-sm sm:text-base max-w-lg leading-relaxed pt-2">
+              <p className="text-neutral-300 text-[9px] xs:text-[11px] sm:text-xs md:text-sm max-w-md leading-relaxed font-sans pt-0.5 break-words">
                 Crafted with anatomical precision and warm earth-toned luxury aesthetic. Elevate your everyday wardrobe with our handcrafted footwear collection.
               </p>
             </motion.div>
 
-            {/* Dual CTAs */}
-            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-2">
+            {/* Dual CTAs (Compact Button Layout for mobile screens) */}
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-1 w-full max-w-full">
               <motion.a
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                href="#best-sellers"
-                className="px-7 py-3.5 rounded-full bg-brand-dark text-white text-sm font-semibold hover:bg-black transition-all duration-300 shadow-md hover:shadow-xl flex items-center gap-2 group"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+                href="#new-arrivals"
+                className="px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full bg-[#D4A373] text-[#111111] font-extrabold text-[9px] sm:text-xs hover:bg-white hover:text-[#111111] transition-all duration-300 shadow-xl flex items-center justify-center gap-1.5 group uppercase tracking-wider text-center max-w-full"
               >
-                <span>Shop Now</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <span className="truncate">Shop Now</span>
+                <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
               </motion.a>
 
               <motion.a
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
                 href="#categories"
-                className="px-7 py-3.5 rounded-full bg-zinc-100 text-brand-dark border border-zinc-200 text-sm font-semibold hover:bg-zinc-200 transition-all duration-300 flex items-center gap-2"
+                className="px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 text-[9px] sm:text-xs font-bold hover:bg-white hover:text-brand-dark transition-all duration-300 flex items-center justify-center gap-1.5 text-center max-w-full"
               >
-                <Compass className="w-4 h-4 text-brand-muted" />
-                <span>Explore Categories</span>
+                <Compass className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D4A373] flex-shrink-0" />
+                <span className="truncate">Explore Categories</span>
               </motion.a>
             </motion.div>
 
-            {/* Key Micro-stats */}
+            {/* Key Micro-stats (Responsive Grid for mobile screens) */}
             <motion.div
               variants={itemVariants}
-              className="grid grid-cols-3 gap-6 pt-6 border-t border-zinc-100 text-xs"
+              className="grid grid-cols-3 gap-1 sm:gap-4 pt-2 border-t border-white/15 text-xs max-w-md w-full"
             >
-              <div>
-                <p className="text-xl font-bold text-brand-dark font-sans">100%</p>
-                <p className="text-brand-muted text-[11px]">Full-Grain Leather</p>
+              <div className="min-w-0">
+                <p className="text-[9px] sm:text-base md:text-lg font-black text-white font-sans truncate">100%</p>
+                <p className="text-neutral-400 text-[7px] sm:text-[10px] font-mono leading-tight truncate">Leather</p>
               </div>
-              <div>
-                <p className="text-xl font-bold text-brand-dark font-sans">24 hrs</p>
-                <p className="text-brand-muted text-[11px]">UAE Express Dispatch</p>
+              <div className="min-w-0">
+                <p className="text-[9px] sm:text-base md:text-lg font-black text-white font-sans truncate">24 hrs</p>
+                <p className="text-neutral-400 text-[7px] sm:text-[10px] font-mono leading-tight truncate">UAE Shipping</p>
               </div>
-              <div>
-                <p className="text-xl font-bold text-brand-dark font-sans">4.9 ★</p>
-                <p className="text-brand-muted text-[11px]">Customer Rating</p>
+              <div className="min-w-0">
+                <p className="text-[9px] sm:text-base md:text-lg font-black text-white font-sans truncate">4.9 ★</p>
+                <p className="text-neutral-400 text-[7px] sm:text-[10px] font-mono leading-tight truncate">Rating</p>
               </div>
             </motion.div>
 
           </motion.div>
 
-          {/* Right Column: Asymmetrical Double-Image Display over Warm Earth Card Block */}
-          <div className="lg:col-span-6 relative">
+          {/* Right Column: Floating Brand Theme Sneakers */}
+          <div className="lg:col-span-5 relative flex items-center justify-center pt-1 lg:pt-0 w-full max-w-full">
             
-            {/* Background Earth-Toned Accent Card */}
+            {/* Animated Floating Sneakers Container */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="relative w-full aspect-[4/3] rounded-3xl bg-gradient-to-tr from-[#D4A373] via-[#C29B7F] to-[#E6D5C3] p-6 shadow-2xl overflow-hidden"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut' }}
+              className="relative z-10 w-full max-w-[150px] xs:max-w-[220px] sm:max-w-[380px] aspect-square flex items-center justify-center group"
             >
-              
-              {/* Decorative Subtle Geometry Lines */}
-              <div className="absolute top-0 right-0 w-72 h-72 rounded-full border border-white/20 -mr-20 -mt-20 pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full border border-white/20 -ml-20 -mb-20 pointer-events-none" />
+              <img
+                src="public/assets/images/shoes2.jpg"
+                alt="sho.esuae Luxury Footwear"
+                className="w-full h-auto object-contain opacity-100 filter-none drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
 
-              {/* Top Card Label */}
-              <div className="absolute top-6 left-6 z-20 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full text-[11px] font-bold tracking-wider text-brand-dark shadow-sm">
-                FLAGSHIP MODEL // AEROLIGHT
-              </div>
-
-              {/* Main Shoe Image Asset 1 with Continuous Floating Motion */}
+              {/* Floating "New" Tag Badge */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: 30 }}
-                animate={{
-                  opacity: 1,
-                  scale: [1, 1.02, 1],
-                  y: [0, -8, 0],
-                }}
-                transition={{
-                  opacity: { duration: 0.8, delay: 0.2 },
-                  y: { repeat: Infinity, duration: 5, ease: 'easeInOut' },
-                  scale: { repeat: Infinity, duration: 7, ease: 'easeInOut' },
-                }}
-                className="relative z-10 w-full h-full flex items-center justify-center pt-4"
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
+                className="absolute top-0.5 left-0.5 sm:top-2 sm:left-2 bg-[#D4A373] text-[#111111] px-1.5 sm:px-3 py-0.5 rounded-full text-[7px] sm:text-[10px] font-mono font-extrabold shadow-xl border border-white/40"
               >
-                <img
-                  src="/assets/images/hero_double_shoes.jpg"
-                  alt="SNIKEI Terracotta Aeroflux Sneaker"
-                  className="w-full h-full object-cover rounded-2xl shadow-xl hover:scale-[1.03] transition-transform duration-500"
-                />
+                NEW // 2026
               </motion.div>
-
-              {/* Asymmetrical Secondary Overlapping Floating Product Card */}
-              <motion.div
-                initial={{ opacity: 0, x: 40, y: 20 }}
-                animate={{
-                  opacity: 1,
-                  x: 0,
-                  y: [0, -6, 0],
-                }}
-                transition={{
-                  opacity: { duration: 0.8, delay: 0.4 },
-                  y: { repeat: Infinity, duration: 4.5, ease: 'easeInOut', delay: 0.5 },
-                }}
-                className="absolute -bottom-4 -right-4 md:bottom-4 md:right-4 z-30 bg-white p-3.5 md:p-4 rounded-2xl shadow-2xl border border-zinc-100 max-w-[220px] sm:max-w-[250px]"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-16 h-16 rounded-xl bg-zinc-100 overflow-hidden flex-shrink-0">
-                    <img
-                      src="/assets/images/sneaker_white_tan.jpg"
-                      alt="Studio Low Top"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase font-bold text-brand-accent tracking-wider block">
-                      JUST DROPPED
-                    </span>
-                    <h4 className="text-xs font-bold text-brand-dark line-clamp-1 font-sans">
-                      Studio White Low-Top
-                    </h4>
-                    <p className="text-xs font-semibold text-neutral-800 pt-0.5 font-sans">
-                      $245 <span className="text-[10px] text-zinc-400 font-normal">AED 899</span>
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
             </motion.div>
 
           </div>
@@ -188,3 +151,4 @@ export const HeroSection: React.FC = () => {
     </section>
   );
 };
+

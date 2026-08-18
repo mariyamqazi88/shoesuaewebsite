@@ -91,7 +91,7 @@ export const CartDrawer: React.FC = () => {
                     {step === 'cart' ? `Your Bag (${totalItemsCount})` : 'Delivery & Checkout'}
                   </h3>
                   <span className="text-[10px] text-zinc-400 font-mono">
-                    {step === 'cart' ? 'Free UAE Express over $200' : 'Step 2 of 2'}
+                    {step === 'cart' ? 'Free UAE Shipping over $200' : 'Step 2 of 2'}
                   </span>
                 </div>
               </div>
@@ -356,7 +356,7 @@ export const CartDrawer: React.FC = () => {
                     <span className="font-semibold text-brand-dark">${subtotal}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>UAE Courier Express</span>
+                    <span>UAE Courier Shipping</span>
                     <span>{shippingFee === 0 ? <strong className="text-emerald-600">FREE</strong> : `$${shippingFee}`}</span>
                   </div>
                   <div className="flex justify-between">

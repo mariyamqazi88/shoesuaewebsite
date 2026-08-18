@@ -2,21 +2,21 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { PRODUCTS } from '../../data/products';
 import { ProductCard } from '../shop/ProductCard';
-import { Zap, ArrowRight } from 'lucide-react';
+import { Sparkles, ArrowRight } from 'lucide-react';
 
 export const SlidingProductShowcase: React.FC = () => {
   return (
-    <section className="py-16 bg-gradient-to-b from-white via-brand-surface to-white border-b border-zinc-100 overflow-hidden relative">
+    <section className="py-10 md:py-12 bg-gradient-to-b from-white via-brand-surface to-white border-b border-zinc-100 overflow-hidden relative">
       
       {/* Top Banner Header */}
-      <div className="container mx-auto px-4 md:px-8 mb-8 flex justify-between items-end">
+      <div className="container mx-auto px-4 md:px-8 mb-6 flex justify-between items-end">
         <div>
-          <div className="flex items-center gap-2 text-brand-accent text-xs font-mono font-bold tracking-widest uppercase">
-            <Zap className="w-3.5 h-3.5" />
+          <div className="flex items-center gap-2 text-brand-accent text-[11px] font-mono font-bold tracking-widest uppercase">
+            <Sparkles className="w-3.5 h-3.5" />
             <span>CONTINUOUS SLIDE SHOWCASE</span>
           </div>
-          <h2 className="text-2xl md:text-4xl font-extrabold text-brand-dark tracking-tight mt-1 font-sans">
-            Trending Silhouettes In Motion
+          <h2 className="text-2xl md:text-3xl font-extrabold text-brand-dark tracking-tight mt-1 font-sans">
+            Trending Styles In Motion
           </h2>
         </div>
         <div className="hidden sm:flex items-center gap-2 text-xs font-semibold text-brand-muted">

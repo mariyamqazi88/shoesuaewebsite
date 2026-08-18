@@ -24,20 +24,20 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#111111] text-white pt-24 pb-14 border-t border-neutral-800 relative overflow-hidden">
+    <footer className="bg-[#111111] text-white pt-8 sm:pt-12 pb-8 border-t border-neutral-800 relative overflow-hidden">
       
       {/* Subtle Background Glow */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
+      <div className="container mx-auto px-2 sm:px-4 md:px-8 relative z-10">
         
-        {/* Main 4-Column Grid with Framer Motion Stagger */}
+        {/* Main 4-Column Grid with Top Padding so headings start downward */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-neutral-800"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 pt-4 sm:pt-6 pb-12 sm:pb-16 border-b border-neutral-800"
         >
           
           {/* Section 1: Brand Bio */}

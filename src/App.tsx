@@ -13,7 +13,6 @@ import { HeroSection } from './components/sections/HeroSection';
 import { ContinuousMarquee } from './components/sections/ContinuousMarquee';
 import { ValuePropSection } from './components/sections/ValuePropSection';
 import { PromoBannersSection } from './components/sections/PromoBannersSection';
-import { BestSellersSection } from './components/sections/BestSellersSection';
 import { SlidingProductShowcase } from './components/sections/SlidingProductShowcase';
 import { NewArrivalsSection } from './components/sections/NewArrivalsSection';
 import { CategoryGridSection } from './components/sections/CategoryGridSection';
@@ -48,17 +47,15 @@ const AppContent: React.FC = () => {
             <ProductDetailPage />
           ) : (
             <>
-              {/* Core Home Sections with Continuous Marquee & Slide Animations */}
+              {/* Core Home Sections */}
               <HeroSection />
               <ContinuousMarquee variant="dark" />
               <ValuePropSection />
+              <NewArrivalsSection />
               <PromoBannersSection />
-              <BestSellersSection />
               <ContinuousMarquee variant="accent" />
               <SlidingProductShowcase />
-              <NewArrivalsSection />
               <CategoryGridSection />
-              <ContinuousMarquee variant="light" />
               <NewsletterSection />
             </>
           )}

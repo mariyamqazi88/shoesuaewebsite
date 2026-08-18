@@ -13,7 +13,7 @@ export const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
   const { openQuickView } = useQuickView();
   const { navigateToProduct } = useNavigation();
   
-  const [selectedSize, setSelectedSize] = useState<number>(product.sizes[0] || 42);
+  const selectedSize = product.sizes[0] || 42;
   const [isAdded, setIsAdded] = useState(false);
   const isFavorite = isInWishlist(product.id);
 
@@ -34,16 +34,16 @@ export const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5 }}
-      className="group relative flex flex-col justify-between bg-white rounded-2xl border border-zinc-100 p-4 hover:border-zinc-300 hover:shadow-xl transition-all duration-300"
+      className="group relative flex flex-col justify-between bg-white rounded-xl sm:rounded-2xl border border-zinc-100 p-2 sm:p-4 hover:border-zinc-300 hover:shadow-xl transition-all duration-300 w-full max-w-full overflow-hidden"
     >
       {/* Top Image Container */}
       <div
         onClick={handleCardClick}
-        className="relative w-full aspect-square rounded-xl bg-brand-card flex items-center justify-center p-4 overflow-hidden cursor-pointer mb-4"
+        className="relative w-full aspect-square rounded-lg sm:rounded-xl bg-brand-card flex items-center justify-center p-2 sm:p-4 overflow-hidden cursor-pointer mb-2 sm:mb-4"
       >
         {/* Discount / Tag Badge */}
         {product.tag && (
-          <span className="absolute top-3 left-3 z-10 bg-brand-dark text-white text-[10px] font-bold px-2.5 py-1 rounded-full tracking-wider uppercase shadow-sm">
+          <span className="absolute top-2 left-2 z-10 bg-brand-dark text-white text-[8px] sm:text-[10px] font-bold px-2 py-0.5 sm:py-1 rounded-full tracking-wider uppercase shadow-sm max-w-[80%] truncate">
             {product.tag}
           </span>
         )}
@@ -54,14 +54,14 @@ export const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
             e.stopPropagation();
             toggleWishlist(product);
           }}
-          className={`absolute top-3 right-3 z-10 w-8 h-8 rounded-full flex items-center justify-center transition-all ${
+          className={`absolute top-2 right-2 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-all ${
             isFavorite
               ? 'bg-red-500 text-white shadow-md'
               : 'bg-white/80 backdrop-blur-md text-brand-dark hover:bg-white'
           }`}
           aria-label="Wishlist"
         >
-          <Heart className={`w-4 h-4 ${isFavorite ? 'fill-current' : ''}`} />
+          <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isFavorite ? 'fill-current' : ''}`} />
         </button>
 
         {/* Quick View Hover Button */}
@@ -70,10 +70,10 @@ export const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
             e.stopPropagation();
             openQuickView(product);
           }}
-          className="absolute bottom-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white/95 backdrop-blur-md text-brand-dark text-xs font-semibold px-4 py-2 rounded-full shadow-lg flex items-center gap-1.5 hover:bg-brand-dark hover:text-white"
+          className="absolute bottom-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white/95 backdrop-blur-md text-brand-dark text-[10px] sm:text-xs font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg flex items-center gap-1 hover:bg-brand-dark hover:text-white whitespace-nowrap"
         >
-          <Eye className="w-3.5 h-3.5" />
-          <span>Quick View</span>
+          <Eye className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+          <span className="hidden sm:inline">Quick View</span>
         </button>
 
         {/* Centered High Quality Shoe Image Asset */}
@@ -88,74 +88,49 @@ export const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
       </div>
 
       {/* Product Details Section */}
-      <div className="space-y-3 flex-1 flex flex-col justify-between">
+      <div className="space-y-2 sm:space-y-3 flex-1 flex flex-col justify-between w-full min-w-0">
         <div>
           {/* Category & Numerical Rating Block */}
-          <div className="flex items-center justify-between text-xs mb-1">
-            <span className="font-mono text-[10px] uppercase text-brand-muted tracking-wider">
+          <div className="flex items-center justify-between text-xs mb-1 gap-1">
+            <span className="font-mono text-[8px] sm:text-[10px] uppercase text-brand-muted tracking-wider truncate">
               {product.category}
             </span>
 
-            <div className="flex items-center gap-1 bg-amber-50 text-amber-900 px-2 py-0.5 rounded font-semibold text-[11px]">
-              <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+            <div className="flex items-center gap-0.5 sm:gap-1 bg-amber-50 text-amber-900 px-1.5 sm:px-2 py-0.5 rounded font-semibold text-[9px] sm:text-[11px] flex-shrink-0">
+              <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-amber-400 text-amber-400" />
               <span>{product.rating}</span>
-              <span className="text-zinc-400 text-[10px]">({product.reviewsCount})</span>
             </div>
           </div>
 
           {/* Product Title */}
           <h3
             onClick={handleCardClick}
-            className="text-sm font-bold text-brand-dark cursor-pointer hover:text-brand-accent transition-colors line-clamp-1"
+            className="text-xs sm:text-sm font-bold text-brand-dark cursor-pointer hover:text-brand-accent transition-colors line-clamp-1 break-words"
           >
             {product.name}
           </h3>
-
-          {/* Size Selector Quick Chips */}
-          <div className="flex items-center gap-1 pt-2">
-            <span className="text-[10px] text-brand-muted mr-1">EU Size:</span>
-            {product.sizes.slice(0, 5).map((size) => (
-              <button
-                key={size}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setSelectedSize(size);
-                }}
-                className={`text-[10px] px-1.5 py-0.5 rounded border transition-colors ${
-                  selectedSize === size
-                    ? 'border-brand-dark bg-brand-dark text-white font-bold'
-                    : 'border-zinc-200 text-zinc-600 hover:border-zinc-400'
-                }`}
-              >
-                {size}
-              </button>
-            ))}
-          </div>
         </div>
 
         {/* Price & Add to Cart Button */}
-        <div className="pt-2 border-t border-zinc-100 flex items-center justify-between gap-2">
+        <div className="pt-2 border-t border-zinc-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-1.5">
           {/* Prices */}
-          <div>
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-base font-extrabold text-brand-dark font-sans">
+          <div className="min-w-0">
+            <div className="flex items-baseline gap-1">
+              <span className="text-xs sm:text-base font-extrabold text-brand-dark font-sans truncate">
                 ${product.price}
               </span>
               {product.originalPrice && (
-                <span className="text-xs text-zinc-400 line-through">
+                <span className="text-[10px] sm:text-xs text-zinc-400 line-through">
                   ${product.originalPrice}
                 </span>
               )}
             </div>
-            <span className="text-[10px] text-zinc-400 font-mono block">
-              ~ AED {Math.round(product.price * 3.67)}
-            </span>
           </div>
 
           {/* Add to Cart Button */}
           <button
             onClick={handleAddToCart}
-            className={`px-3.5 py-2.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all duration-300 shadow-sm ${
+            className={`w-full sm:w-auto px-2.5 sm:px-3.5 py-1.5 sm:py-2.5 rounded-full text-[10px] sm:text-xs font-semibold flex items-center justify-center gap-1 transition-all duration-300 shadow-sm ${
               isAdded
                 ? 'bg-emerald-600 text-white'
                 : 'bg-brand-dark text-white hover:bg-black'
@@ -163,13 +138,13 @@ export const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
           >
             {isAdded ? (
               <>
-                <Check className="w-3.5 h-3.5" />
-                <span>Added</span>
+                <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                <span className="truncate">Added</span>
               </>
             ) : (
               <>
-                <ShoppingBag className="w-3.5 h-3.5" />
-                <span>Add to Cart</span>
+                <ShoppingBag className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                <span className="truncate">Add</span>
               </>
             )}
           </button>

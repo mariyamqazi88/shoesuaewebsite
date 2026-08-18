@@ -122,7 +122,7 @@ export const OrderConfirmationModal: React.FC = () => {
                     <span className="font-bold text-brand-dark block">Drop-off Window</span>
                     <span className="text-zinc-600 block">{lastCompletedOrder.customer.dropoffWindow}</span>
                     <span className="text-[10px] font-mono text-emerald-600 font-bold block pt-1">
-                      ⚡ Guaranteed 24-hr Express
+                      ✓ Guaranteed 24-hr Shipping
                     </span>
                   </div>
                 </div>

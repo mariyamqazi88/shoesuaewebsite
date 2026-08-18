@@ -3,11 +3,11 @@ import { ArrowRight, Truck } from 'lucide-react';
 
 export const AnnouncementBar: React.FC = () => {
   return (
-    <div className="bg-brand-dark text-white text-xs py-2 px-4 flex justify-between items-center overflow-hidden">
+    <div className="hidden sm:flex bg-brand-dark text-white text-xs py-2 px-4 justify-between items-center overflow-hidden">
       <div className="container mx-auto flex justify-between items-center">
         <div className="hidden sm:flex items-center gap-2 text-neutral-400 text-[11px]">
           <Truck className="w-3.5 h-3.5 text-brand-accent" />
-          <span>Complimentary Express Delivery in UAE for orders over $200</span>
+          <span>Complimentary Shipping in UAE for orders over $200</span>
         </div>
         <div className="mx-auto sm:mx-0 flex items-center gap-2 text-[11px]">
           <span className="bg-brand-accent/20 text-brand-accent px-2 py-0.5 rounded font-medium text-[10px]">

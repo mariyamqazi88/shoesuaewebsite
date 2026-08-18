@@ -24,8 +24,8 @@ export const CategoryGridSection: React.FC = () => {
   };
 
   return (
-    <section id="categories" className="py-24 bg-white border-b border-zinc-100">
-      <div className="container mx-auto px-4 md:px-8">
+    <section id="categories" className="py-8 md:py-16 bg-white border-b border-zinc-100 mb-8 md:mb-12">
+      <div className="container mx-auto px-2 sm:px-4 md:px-8">
         
         {/* Section Header */}
         <motion.div
@@ -33,14 +33,14 @@ export const CategoryGridSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12"
+          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 sm:mb-10"
         >
           <div>
-            <span className="text-xs font-mono tracking-widest text-brand-accent uppercase font-bold">
-              CURATED STYLES
+            <span className="text-[10px] sm:text-xs font-mono tracking-widest text-brand-accent uppercase font-bold">
+              CURATED COLLECTION GALLERY
             </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark tracking-tight mt-1 font-sans">
-              Browse By Category
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-brand-dark tracking-tight mt-1 font-sans">
+              Browse Complete Collection
             </h2>
           </div>
           <p className="text-xs text-brand-muted max-w-sm mt-2 md:mt-0 leading-relaxed">
@@ -54,15 +54,15 @@ export const CategoryGridSection: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
+          className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-5"
         >
           {CATEGORIES.filter(c => c.name !== 'All').map((cat) => (
             <motion.a
               key={cat.name}
               variants={itemVariants}
-              whileHover={{ y: -6, scale: 1.02 }}
+              whileHover={{ y: -4, scale: 1.02 }}
               href="#new-arrivals"
-              className="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-brand-card flex flex-col justify-end p-5 border border-zinc-100 hover:border-brand-accent transition-all duration-300 shadow-sm hover:shadow-xl"
+              className="group relative rounded-xl overflow-hidden aspect-[4/5] bg-brand-card flex flex-col justify-end p-4 border border-zinc-100 hover:border-brand-accent transition-all duration-300 shadow-sm hover:shadow-lg"
             >
               <img
                 src={cat.image}
@@ -71,17 +71,17 @@ export const CategoryGridSection: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
               
-              <div className="relative z-10 text-white space-y-1">
+              <div className="relative z-10 text-white space-y-0.5">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-base font-bold tracking-tight font-sans">
+                  <h3 className="text-sm font-bold tracking-tight font-sans">
                     {cat.name}
                   </h3>
-                  <div className="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:bg-white group-hover:text-brand-dark transition-colors">
-                    <ArrowUpRight className="w-4 h-4" />
+                  <div className="w-6 h-6 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:bg-white group-hover:text-brand-dark transition-colors">
+                    <ArrowUpRight className="w-3.5 h-3.5" />
                   </div>
                 </div>
                 <span className="text-[10px] text-neutral-300 font-mono block">
-                  {cat.count} Silhouettes
+                  {cat.count} Styles
                 </span>
               </div>
             </motion.a>

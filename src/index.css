@@ -3,10 +3,30 @@
 @tailwind utilities;
 
 @layer base {
+  html, body {
+    overflow-x: clip;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  #root {
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     font-size: 0.875rem;
     color: #111111;
     background-color: #ffffff;
+  }
+
+  img, video, svg, canvas {
+    max-width: 100%;
+    height: auto;
   }
 }
 

@@ -16,7 +16,7 @@ export const ValuePropSection: React.FC = () => {
     {
       icon: Truck,
       title: 'Delivery & Shipping',
-      description: 'Complimentary 24-hour express courier dispatch across all 7 Emirates in the UAE.',
+      description: 'Complimentary 24-hour courier shipping across all 7 Emirates in the UAE.',
     },
     {
       icon: Recycle,

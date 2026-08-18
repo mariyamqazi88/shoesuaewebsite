@@ -37,29 +37,31 @@ export const Navbar: React.FC = () => {
   const navLinks = [
     { name: 'Home', href: '#' },
     { name: 'Categories', href: '#categories' },
-    { name: 'Best Sellers', href: '#best-sellers' },
     { name: 'New Arrivals', href: '#new-arrivals' },
+    { name: 'Offers', href: '#offers' },
     { name: 'About Store', href: '#about' },
   ];
 
   return (
     <header
-      className={`sticky top-0 z-40 transition-all duration-300 ${
-        isScrolled ? 'glass-nav shadow-sm border-b border-brand-border/60 py-3.5' : 'bg-white py-5 border-b border-zinc-100'
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'glass-nav shadow-md border-b border-brand-border/60 py-2.5 sm:py-3'
+          : 'bg-white py-3.5 sm:py-4 border-b border-zinc-100 shadow-sm'
       }`}
     >
-      <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
+      <div className="container mx-auto px-2 sm:px-4 md:px-8 flex items-center justify-between gap-1">
         
-        {/* Brand Logo with Infinite Circular Rotation Badge */}
+        {/* Brand Logo with Stationary Emblem */}
         <div
           onClick={() => navigateToHome()}
-          className="flex items-center gap-3.5 group cursor-pointer"
+          className="flex items-center gap-1.5 sm:gap-3.5 group cursor-pointer overflow-hidden"
         >
           {/* Logo Container with Dot Border and Spacing */}
-          <div className="relative w-14 h-14 flex items-center justify-center">
-            {/* Outer Spinning Dot Border */}
+          <div className="relative w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
+            {/* Outer Stationary Dot Border */}
             <svg
-              className="absolute inset-0 w-full h-full text-brand-accent animate-spin-slow"
+              className="absolute inset-0 w-full h-full text-brand-accent"
               viewBox="0 0 100 100"
             >
               <circle
@@ -75,7 +77,7 @@ export const Navbar: React.FC = () => {
             </svg>
 
             {/* Inner Logo Icon Container sticky to dot border with bg-brand-accent */}
-            <div className="w-12 h-12 rounded-full bg-brand-accent flex items-center justify-center p-0.5 shadow-md z-10 overflow-hidden">
+            <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-brand-accent flex items-center justify-center p-0.5 shadow-md z-10 overflow-hidden">
               <img
                 src="/assets/images/logo1.png"
                 alt="sho.esuae Logo"
@@ -85,10 +87,10 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className="flex flex-col">
-            <span className="font-extrabold text-xl md:text-2xl tracking-tight text-brand-dark font-sans leading-none">
+            <span className="font-bold text-sm sm:text-lg md:text-xl tracking-tight text-brand-dark font-sans leading-none truncate max-w-[100px] sm:max-w-none">
               sho.esuae
             </span>
-            <span className="text-[9px] font-mono tracking-widest text-brand-muted uppercase">
+            <span className="text-[8px] sm:text-[9px] font-mono tracking-widest text-brand-muted uppercase truncate">
               Luxury Footwear
             </span>
           </div>
@@ -108,24 +110,24 @@ export const Navbar: React.FC = () => {
           ))}
         </nav>
 
-        {/* Action Icons */}
-        <div className="flex items-center gap-4 md:gap-6">
+        {/* Action Icons (Ultra-responsive gap for 200px - 300px) */}
+        <div className="flex items-center gap-1 sm:gap-4 md:gap-6">
           {/* Search Trigger */}
           <button
             onClick={() => setIsSearchOpen(true)}
-            className="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-zinc-100"
+            className="p-1.5 sm:p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-zinc-100"
             aria-label="Search"
           >
-            <Search className="w-5 h-5 stroke-[1.75]" />
+            <Search className="w-4 h-4 sm:w-5 sm:h-5 stroke-[1.75]" />
           </button>
 
           {/* Wishlist Icon */}
           <a
             href="#new-arrivals"
-            className="relative p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-zinc-100 hidden sm:block"
+            className="relative p-1.5 sm:p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-zinc-100 hidden sm:block"
             aria-label="Wishlist"
           >
-            <Heart className="w-5 h-5 stroke-[1.75]" />
+            <Heart className="w-4 h-4 sm:w-5 sm:h-5 stroke-[1.75]" />
             {wishlistCount > 0 && (
               <motion.span
                 initial={{ scale: 0 }}
@@ -140,11 +142,11 @@ export const Navbar: React.FC = () => {
           {/* Cart Icon with Dynamic Counter */}
           <button
             onClick={() => setIsCartOpen(true)}
-            className="relative p-2.5 bg-brand-dark text-white rounded-full hover:bg-black transition-all duration-200 flex items-center justify-center gap-2 group shadow-sm"
+            className="relative p-1.5 sm:p-2.5 bg-brand-dark text-white rounded-full hover:bg-black transition-all duration-200 flex items-center justify-center gap-1 sm:gap-2 group shadow-sm"
             aria-label="Cart"
           >
-            <ShoppingBag className="w-4 h-4 stroke-[2]" />
-            <span className="text-xs font-semibold px-1">
+            <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2]" />
+            <span className="text-[10px] sm:text-xs font-semibold px-0.5 sm:px-1">
               {totalItemsCount}
             </span>
             {totalItemsCount > 0 && (
@@ -155,10 +157,10 @@ export const Navbar: React.FC = () => {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-brand-dark lg:hidden"
+            className="p-1.5 text-brand-dark lg:hidden"
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
           </button>
         </div>
       </div>

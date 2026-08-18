@@ -252,7 +252,7 @@ export const ProductQuickViewModal: React.FC = () => {
               <div className="flex items-center justify-between text-[10px] text-zinc-400 pt-1">
                 <span className="flex items-center gap-1">
                   <Truck className="w-3.5 h-3.5 text-brand-accent" />
-                  <span>24h Express Dispatch in UAE</span>
+                  <span>24h Shipping Dispatch in UAE</span>
                 </span>
                 <span className="flex items-center gap-1">
                   <ShieldCheck className="w-3.5 h-3.5 text-brand-accent" />

@@ -59,7 +59,7 @@ export const SearchModal: React.FC = () => {
           {/* Results Area */}
           <div className="space-y-3">
             <div className="flex items-center justify-between text-xs text-brand-muted font-mono">
-              <span>{query ? `SEARCH RESULTS (${results.length})` : 'TRENDING SILHOUETTES'}</span>
+              <span>{query ? `SEARCH RESULTS (${results.length})` : 'TRENDING STYLES'}</span>
               <span>{query ? 'LIVE FILTER' : 'CURATED'}</span>
             </div>
 

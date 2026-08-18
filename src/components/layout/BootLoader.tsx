@@ -69,15 +69,15 @@ export const BootLoader: React.FC<{ onComplete: () => void }> = ({ onComplete })
           {/* Center Brand Emblem & Typography */}
           <div className="relative z-10 my-auto max-w-xl w-full mx-auto text-center space-y-8">
             
-            {/* Continuous Rotating Luxury Emblem */}
+            {/* Luxury Emblem (Stationary) */}
             <div className="relative w-28 h-28 mx-auto flex items-center justify-center">
-              {/* Outer Spinning Ring */}
-              <svg className="absolute inset-0 w-full h-full text-brand-accent animate-spin-slow" viewBox="0 0 100 100">
+              {/* Outer Ring */}
+              <svg className="absolute inset-0 w-full h-full text-brand-accent" viewBox="0 0 100 100">
                 <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="6 12" className="opacity-75" />
               </svg>
 
-              {/* Inner Pulsing Ring */}
-              <svg className="absolute inset-2 w-[88%] h-[88%] text-amber-300 animate-spin-slow" style={{ animationDirection: 'reverse', animationDuration: '24s' }} viewBox="0 0 100 100">
+              {/* Inner Ring */}
+              <svg className="absolute inset-2 w-[88%] h-[88%] text-amber-300" viewBox="0 0 100 100">
                 <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 8" className="opacity-60" />
               </svg>
 
@@ -95,7 +95,7 @@ export const BootLoader: React.FC<{ onComplete: () => void }> = ({ onComplete })
                 initial={{ y: 25, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6 }}
-                className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white font-sans leading-none"
+                className="text-xl sm:text-2xl font-bold tracking-tight text-white font-sans leading-none"
               >
                 sho.esuae
               </motion.h1>

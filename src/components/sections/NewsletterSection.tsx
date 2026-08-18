@@ -15,19 +15,30 @@ export const NewsletterSection: React.FC = () => {
   };
 
   return (
-    <section id="about" className="py-28 bg-[#0D0D0E] text-white relative overflow-hidden">
+    <section id="about" className="mt-8 md:mt-16 py-10 md:py-20 bg-[#0C0C0D] text-white relative overflow-hidden">
       
-      {/* Background Decorative Ambient Glows */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-accent/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+      {/* High-Clarity Unique HD Atelier Craftsmanship Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/assets/images/about_luxury_atelier.jpg"
+          alt="About sho.esuae Atelier Craftsmanship"
+          className="w-full h-full object-cover opacity-90 filter-none transition-opacity duration-700"
+        />
+        {/* Soft Vignette Gradient for high contrast text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0C0C0D]/50 via-[#0C0C0D]/30 to-[#0C0C0D]/75" />
+      </div>
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
+      {/* Decorative Brand Ambient Glows */}
+      <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-brand-accent/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="container mx-auto px-2 sm:px-4 md:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.7 }}
-          className="max-w-4xl mx-auto bg-neutral-900/90 border border-neutral-800 rounded-3xl p-8 md:p-16 text-center space-y-8 shadow-2xl backdrop-blur-xl my-4"
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.5 }}
+          className="max-w-3xl mx-auto bg-neutral-900/95 border border-neutral-800/90 rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 text-center space-y-4 sm:space-y-5 shadow-2xl backdrop-blur-xl"
         >
           
           <motion.div
@@ -35,19 +46,19 @@ export const NewsletterSection: React.FC = () => {
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ type: 'spring', delay: 0.2, stiffness: 200 }}
-            className="w-14 h-14 rounded-2xl bg-brand-accent/20 border border-brand-accent/30 text-brand-accent flex items-center justify-center mx-auto mb-2 shadow-inner"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-brand-accent/20 border border-brand-accent/30 text-brand-accent flex items-center justify-center mx-auto mb-1 shadow-inner"
           >
-            <Mail className="w-7 h-7" />
+            <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
           </motion.div>
 
-          <div className="space-y-3">
-            <span className="text-xs font-mono tracking-widest text-brand-accent uppercase font-bold">
-              SHO.ESUAE PRIVATE CLUB
+          <div className="space-y-1.5">
+            <span className="text-[10px] sm:text-xs font-mono tracking-widest text-brand-accent uppercase font-bold">
+              SHO.ESUAE PRIVATE CLUB & ATELIER
             </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight font-sans leading-tight">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight font-sans leading-tight">
               Elevate Your Footwear Rotation
             </h2>
-            <p className="text-neutral-400 text-xs md:text-sm max-w-lg mx-auto leading-relaxed pt-1 font-sans">
+            <p className="text-neutral-300 text-[11px] sm:text-xs md:text-sm max-w-lg mx-auto leading-relaxed font-sans">
               Subscribe for private access to limited release drops, bespoke trunk show invitations in Dubai, and 10% off your first order with code <span className="text-brand-accent font-mono font-bold">SHOESUAE10</span>.
             </p>
           </div>
@@ -56,7 +67,7 @@ export const NewsletterSection: React.FC = () => {
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="bg-emerald-950/60 border border-emerald-800 text-emerald-300 p-4.5 rounded-2xl max-w-md mx-auto flex items-center justify-center gap-3 text-xs font-medium"
+              className="bg-emerald-950/60 border border-emerald-800 text-emerald-300 p-4 rounded-2xl max-w-md mx-auto flex items-center justify-center gap-3 text-xs font-medium"
             >
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               <span>Welcome to the sho.esuae Private Circle! Check your inbox.</span>
@@ -69,13 +80,13 @@ export const NewsletterSection: React.FC = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address..."
                 required
-                className="w-full px-5 py-3.5 rounded-full bg-neutral-800 border border-neutral-700 text-white placeholder-neutral-500 text-xs focus:outline-none focus:border-brand-accent transition-colors"
+                className="w-full px-5 py-3 rounded-full bg-neutral-800 border border-neutral-700 text-white placeholder-neutral-500 text-xs focus:outline-none focus:border-brand-accent transition-colors"
               />
               <motion.button
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
                 type="submit"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-brand-accent text-brand-dark font-bold text-xs hover:bg-white transition-all duration-300 whitespace-nowrap flex items-center justify-center gap-2 shadow-md"
+                className="w-full sm:w-auto px-8 py-3 rounded-full bg-brand-accent text-brand-dark font-bold text-xs hover:bg-white transition-all duration-300 whitespace-nowrap flex items-center justify-center gap-2 shadow-md"
               >
                 <span>Subscribe</span>
                 <ArrowRight className="w-4 h-4" />
@@ -83,7 +94,7 @@ export const NewsletterSection: React.FC = () => {
             </form>
           )}
 
-          <div className="flex flex-wrap items-center justify-center gap-6 text-[11px] text-neutral-500 pt-6 border-t border-neutral-800 font-mono">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-[11px] text-neutral-500 pt-4 border-t border-neutral-800 font-mono">
             <span className="flex items-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-brand-accent" />
               <span>No Spam Guarantee</span>
@@ -97,3 +108,5 @@ export const NewsletterSection: React.FC = () => {
     </section>
   );
 };
+
+
